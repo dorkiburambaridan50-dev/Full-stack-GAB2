@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ogoni Incident Report</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <script src="js/api_incidents.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand bg-white border-bottom">
+        <div class="container">
+            <a href="" class="navbar-brand fw-bold">Report</a>
+            <div class="navbar-nav ms-auto align-content-center">
+                <a href="index.html" class="nav-link">Incidents</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="login.html" class="nav-link">Sign In</a>
+                <a href="report.html" class="btn btn-success btn-sm ms-3">Report an Incident</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="container py-5">
+        <h1 class="fw-bold">Report an Incident</h1>
+        <p class="text-muted" id="reportingAs">Tell us what you see. Your request</p>
+        <div id="message"></div>
+        <div class="row g-4">
+            <div class="col-8">
+                <form onsubmit="createIncidents(event)" id="reportForm" class="card card-body">
+                    <div class="mb-3">
+                        <label for="title" class="form-label">Short Title</label>
+                        <input type="text" class="form-control" name="title" placeholder="oil at the Creek at K-Dere"
+                            required>
+                    </div>
+                    <div class="row g-3 mb-3">
+                        <div class="col-6">
+                            <label for="type" class="form-label">Type of Incident</label>
+                            <select name="type" id="type" class="form-select">
+                                <option value="">choose</option>
+                                <option value="">Oil Spill</option>
+                                <option value="">Gas Flaring</option>
+                                <option value="">Water Contamination</option>
+                                <option value="">Waste Dumping</option>
+                            </select>
+                        </div>
+
+                        <div class="col-6">
+                            <label for="LGA" class="form-label">Local Government Area</label>
+                            <select name="LGA" id="LGA" class="form-select">
+                                <option value="">choose</option>
+                                <option value="">Gokana</option>
+                                <option value="">Khana</option>
+                                <option value="">Tai</option>
+                                <option value="">Eleme</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="community" class="form-label">Community</label>
+                        <input type="text" class="form-control" name="community" id="community" placeholder="community"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Tell us what you saw</label>
+                        <textarea name="description" id="description" class="form-control" rows="5" required></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="photo" class="form-label">Photo (Optional)</label>
+                        <input type="file" class="form-control" name="photo" id="photo"
+                            accept="image/jpeg, image/png, image/webp">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-lg">Send Report</button>
+                </form>
+            </div>
+            <div class="col-4">
+                <div class="card card-body estimator">
+                    <h2 class="h6 fw-bold">Severity Estimator</h2>
+                    <p class="small text-muted">Tick what is true. The result will be sent</p>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="nearHomes">
+                        <label for="nearHomes" class="form-check-label">People live within 1 KM</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="reachedWater">
+                        <label for="reachedWater" class="form-check-label">Does it get to water source (Creek,
+                            Stream, Well)</label>
+                    </div>
+                    <div class="form-check mb-2">
+                        <input type="checkbox" class="form-check-input" id="fireOrSmoke">
+                        <label for="fireOrSmoke" class="form-check-label">There is a fire or smoke</label>
+                    </div>
+                    <label for="size" class="form-label">How big is it</label>
+                    <select name="size" id="size">
+                        <option value="">Size (Custom)</option>
+                        <option value="">Small (A few meters)</option>
+                        <option value="">Medium (A Compound or farm)</option>
+                        <option value="">Large (A whole creek or village)</option>
+                    </select>
+                    <p class="small text-muted mt-4">Estimated Severity</p>
+                    <p class="severity-result mb-0" id="severityResult">Low</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer bg-dark text-light py-4">
+        <div class="container d-flex justify-content-between small">
+            <span>Ogoni Incident Reports - a public record of environmental incidents in Ogoni</span>
+            <span>Built by Barida Dorkiburam . Hyprep Capstone 2026</span>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

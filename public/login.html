@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand bg-white border-bottom">
+        <div class="container">
+            <a href="" class="navbar-brand fw-bold">Ogoni Incident Report</a>
+            <div class="navbar-nav ms-auto align-content-center">
+                <a href="index.html" class="nav-link">Incidents</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="login.html" class="nav-link">Sign In</a>
+                <a href="report.html" class="btn btn-success btn-sm ms-3">Report an Incident</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="form-page py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <div class="card form-card">
+                        <div class="card-body p-4">
+                            <h1 class="h3 fw-bold">Sign In</h1>
+                            <p class="text-muted">Use the Phone Number you signed up with and the 6-digit reporter code
+                            </p>
+                            <form onsubmit="loginReporter(event, this)" id="loginForm">
+                                <div class="mb-3">
+                                    <label for="phone" class="form-label">Phone Number</label>
+                                    <input type="number" name="phone" id="phone" class="form-control"
+                                        placeholder="e.g 08192039903">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="code" class="form-label">Reporter Code</label>
+                                    <input type="number" name="code" id="code" class="form-control"
+                                        placeholder="e.g 039903">
+                                </div>
+                                <button class="btn btn-primary">Login</button>
+                            </form>
+                            <div id="message">
+                                <p class="small text-muted mt-3 md-0">New here? <a href="signup.html">Create an
+                                        Account</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer bg-dark text-light py-4">
+        <div class="container d-flex justify-content-between small">
+            <span>Ogoni Incident Reports - a public record of environmental incidents in Ogoni</span>
+            <span>Built by Barida Dorkiburam . Hyprep Capstone 2026</span>
+        </div>
+    </footer>
+
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="js/api_reporters.js"></script>
+</body>
+
+</html>
